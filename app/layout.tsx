@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Karla, Markazi_Text } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/header";
 import "./globals.css";
@@ -10,12 +10,18 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "Little Lemon Restaurant",
+  description: "A mediterranean restaurant in Chicago",
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const karla = Karla({
+  variable: "--font-karla-sans",
+  display: "swap",
+  subsets: ["latin"],
+});
+
+const markaziText = Markazi_Text({
+  variable: "--font-markazi-text",
   display: "swap",
   subsets: ["latin"],
 });
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`${karla.variable} ${markaziText.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
