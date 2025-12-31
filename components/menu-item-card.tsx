@@ -1,12 +1,16 @@
 import {
   Card,
-//   CardAction,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+
+import {
+  Button
+} from "@/components/ui/button"
+
 
 interface MenuItemCardProps {
   name: string
@@ -22,21 +26,21 @@ export function MenuItemCard({
   imageUrl,
 }: MenuItemCardProps) {
   return (
-    <Card className="max-w-xs">
+    <Card className="text-primary overflow-hidden flex flex-col">
         <img
           src={imageUrl}
           alt={name}
-          className="w-full h-52 object-cover rounded-md mb-4"
+          className="w-full h-52 object-cover mb-4"
           />
       <CardContent className="">
-        <CardHeader className="flex flex-row p-0 justify-between items-center mb-2">
+        <CardHeader className="flex flex-row p-0 gap-4 justify-between mb-4 space-y-0">
             <CardTitle>{name}</CardTitle>
-            <span className="font-semibold">{price}</span>
+            <CardTitle className="font-semibold">{price}</CardTitle>
         </CardHeader>
         <CardDescription className="text-xs">{description}</CardDescription>
       </CardContent>
-      <CardFooter>
-        <p>Order Button</p>
+      <CardFooter className="mt-auto justify-end">
+        <Button size="sm">Order Online</Button>
       </CardFooter>
     </Card>
   )
